@@ -24,6 +24,7 @@ If you want to run forecasting
 python forecasting.py --data ETTh1.csv --cols HUFL HULL MUFL MULL LUFL LULL OT --seq_len 96 --pred_len 48
 ```
 Write the file_name you want to use in data!  
+Write the variables you want to use in cols!  
 Write the length you want to input in seq_len!  
 Write the length you want to predict in pred_len!
 If you want to run anomaly detection
