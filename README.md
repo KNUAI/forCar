@@ -23,10 +23,12 @@ If you want to run forecasting
 ```
 python forecasting.py --data ETTh1.csv --cols HUFL HULL MUFL MULL LUFL LULL OT --seq_len 96 --pred_len 48
 ```
+Write the file_nate you want to use in data!  
 Write the length you want to input in seq_len!  
 Write the length you want to predict in pred_len!
 If you want to run anomaly detection
 ```
 python FD.py --data D1.csv --cols feature_1, feature_2, feature_3, feature_4, feature_5, feature_6, feature_7, feature_8, feature_9, feature_10, feature_11, feature_12, feature_13, feature_14, feature_15
 ```
+Write the file_nate you want to use in data!  
 Write the variables you want to use in cols!
