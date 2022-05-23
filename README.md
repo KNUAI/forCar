@@ -8,11 +8,11 @@ git clone https://github.com/KNUAI/forCar.git
 cd forCar && pip install -r requirements.txt
 ```
 
-If you want to forecaste, put your data in datasets/forecasting/
+If you want to forecaste, put your data in datasets/forecasting/  
 ex)
 ![image](https://user-images.githubusercontent.com/86586602/169826930-85e57487-62e3-4998-a472-beb7a288188b.png)
 
-If you want to anomaly detection, put your data in datasets/Anomaly_Detection/
+If you want to anomaly detection, put your data in datasets/Anomaly_Detection/  
 ex)
 ![image](https://user-images.githubusercontent.com/86586602/169827535-a0871177-bc63-4d19-9b7a-f1e82ece500b.png)
 **Notice**
