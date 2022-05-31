@@ -15,9 +15,12 @@ from data_process.etth_data_loader import Dataset_Custom, Dataset_Pred
 from utils.tools import EarlyStopping, adjust_learning_rate, save_model, load_model
 from metrics.ETTh_metrics import metric
 from models.SCINet import SCINet
+from models.LSTM import LSTM
+from models.Informer import Informer
 
 parser = argparse.ArgumentParser(description='SCINet on ETT dataset')
 
+parser.add_argument('--model', type=str, default='SCINet',help='model of experiment, options: [SCINet, Informer, LSTM]')
 ### -------  dataset settings --------------
 parser.add_argument('--root_path', type=str, default='./datasets/forecasting/', help='root path of the data file')
 parser.add_argument('--data', type=str, required=True, default='ETTh1.csv', help='location of the data file')
@@ -72,6 +75,9 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print("Let's use", torch.cuda.device_count(), "GPUs!")
 print('device:', device)
 
+if args.model == 'LSTM':
+    args.seq_len = args.pred_len
+
 print('Args in experiment:')
 print(args)
 
@@ -85,22 +91,37 @@ class Exp():
 
         in_dim = len(self.args.cols)
 
-        model = SCINet(
-            output_len=self.args.pred_len,
-            input_len=self.args.seq_len,
-            input_dim= in_dim,
-            hid_size = self.args.hidden_size,
-            num_levels=self.args.levels,
-            num_decoder_layer=self.args.num_decoder_layer,
-            groups = self.args.groups,
-            kernel = self.args.kernel,
-            dropout = self.args.dropout,
-            single_step_output_One = self.args.single_step_output_One,
-            positionalE = self.args.positionalEcoding,
-            modified = True,
-            RIN=self.args.RIN)
+        if self.args.model == 'SCINet':
+            model = SCINet(
+                output_len=self.args.pred_len,
+                input_len=self.args.seq_len,
+                input_dim= in_dim,
+                hid_size = self.args.hidden_size,
+                num_levels=self.args.levels,
+                num_decoder_layer=self.args.num_decoder_layer,
+                groups = self.args.groups,
+                kernel = self.args.kernel,
+                dropout = self.args.dropout,
+                single_step_output_One = self.args.single_step_output_One,
+                positionalE = self.args.positionalEcoding,
+                modified = True,
+                RIN=self.args.RIN)
+        elif self.args.model == 'Informer':
+            model = Informer(
+                enc_in=in_dim,
+                dec_in=in_dim,
+                c_out=in_dim,
+                seq_len=self.args.seq_len,
+                label_len=0,
+                out_len=self.args.pred_len)
+        elif self.args.model == 'LSTM':
+            model = LSTM(input_dim= in_dim,
+                num_layers=self.args.num_decoder_layer)
+        else:
+            print('wrong model!')
+            exit()
         print(model)
-        return model.double()
+        return model
 
     def _get_data(self, flag):
         args = self.args
@@ -365,10 +386,14 @@ class Exp():
         return
 
     def _process_one_batch_SCINet(self, dataset_object, batch_x, batch_y):
-        batch_x = batch_x.double().to(device)
-        batch_y = batch_y.double()
+        batch_x = batch_x.float().to(device)
+        batch_y = batch_y.float()
 
-        outputs = self.model(batch_x)        
+        if self.args.model == 'Informer':
+            dec_inp = torch.zeros([batch_y.shape[0], self.args.pred_len, batch_y.shape[-1]]).float().to(device)
+            outputs = self.model(batch_x, dec_inp)
+        else:
+            outputs = self.model(batch_x)
 
         #if self.args.inverse:
         outputs_scaled = dataset_object.inverse_transform(outputs)
