@@ -34,6 +34,7 @@ python FD.py --data D1.csv --cols feature_1, feature_2, feature_3, feature_4, fe
 ```
 Write the file_name you want to use in data!  
 Write the variables you want to use in cols!  
+
 **The detailed descriptions for forecasting**
 | Parameter name | Description of parameter |
 | --- | --- |
@@ -55,6 +56,23 @@ Write the variables you want to use in cols!
 | kernel | Window_size: 3, 5, 7 (defaults to 5) |
 | dropout | Dropout (defaults to 0.5) |
 | num_decoder_layer | Evaluate the trained model (defaults to 1) |
+
+**The detailed descriptions for anomaly detection**
+| Parameter name | Description of parameter |
+| --- | --- |
+| data           | The data_file_name                                             |
+| cols | Certain cols from the data files as the input features |
+| fold | 5-fold: 1, 2, 3, 4, 5 (defaults to 5) |
+| latent_size | Dimension of latent vector |
+| threshold_rate | Threshold_rate (defaults to 5) |
+| n_layer | n_layers of rnn model |
+| epoch | Train epochs (defaults to 200) |
+| batch_size | The batch size of training input data (defaults to 32) |
+| lr | Optimizer learning rate (defaults to 0.0001) |
+| r_model | RNN model: `LSTM`, `GRU` (defaults to `LSTM`) |
+| evaluate | Evaluate the trained model |
+| patience | Early stopping patience (defaults to 3) |
+| gpus | The gpu no, used for training and inference (defaults to 0) |
 
 
 
