@@ -33,4 +33,29 @@ Write the length you want to predict in pred_len!
 python FD.py --data D1.csv --cols feature_1, feature_2, feature_3, feature_4, feature_5, feature_6, feature_7, feature_8, feature_9, feature_10, feature_11, feature_12, feature_13, feature_14, feature_15
 ```
 Write the file_name you want to use in data!  
-Write the variables you want to use in cols!
+Write the variables you want to use in cols!  
+**The detailed descriptions for forecasting**
+| Parameter name | Description of parameter |
+| --- | --- |
+| model | The model of experiment. This can be set to `SCINet`, `Informer`, `LSTM` |
+| data           | The data_file_name                                             |
+| inverse | Whether to inverse output data, using this argument means inversing output data (defaults to `True`) |
+| gpu | The gpu no, used for training and inference (defaults to 0) |
+| seq_len | Input sequence length of Informer encoder (defaults to 96) |
+| pred_len | Prediction sequence length (defaults to 48) |
+| cols | Certain cols from the data files as the input features |
+| train_epochs | Train epochs (defaults to 100) |
+| batch_size | The batch size of training input data (defaults to 32) |
+| patience | Early stopping patience (defaults to 5) |
+| learning_rate | Optimizer learning rate (defaults to 0.0001) |
+| loss | Loss function (defaults to `mae`) |
+| lradj | Ways to adjust the learning rate (defaults to `type1`) |
+| evaluate | Evaluate the trained model |
+| hidden_size | N_channel of module (defaults to 4) |
+| kernel | Window_size: 3, 5, 7 (defaults to 5) |
+| dropout | Dropout (defaults to 0.5) |
+| num_decoder_layer | Evaluate the trained model (defaults to 1) |
+
+
+
+
