@@ -21,8 +21,9 @@ anomaly detection dataset must have 'MaterialID', 'is_test', 'target' columns
 ## Usage
 **If you want to run forecasting**
 ```
-python forecasting.py --data ETTh1.csv --cols HUFL HULL MUFL MULL LUFL LULL OT --seq_len 96 --pred_len 48
+python forecasting.py --model SCINet --data ETTh1.csv --cols HUFL HULL MUFL MULL LUFL LULL OT --seq_len 96 --pred_len 48
 ```
+Write the model you want to use in model!
 Write the file_name you want to use in data!  
 Write the variables you want to use in cols!  
 Write the length you want to input in seq_len!  
