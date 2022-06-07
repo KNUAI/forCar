@@ -66,7 +66,7 @@ Write the variables you want to use in cols!
 | fold | 5-fold: 1, 2, 3, 4, 5 (defaults to 5) |
 | latent_size | Dimension of latent vector (defaults to 128) |
 | threshold_rate | Threshold_rate (defaults to 5) |
-| n_layer | n_layers of rnn model |
+| n_layer | n_layers of rnn model (defaults to 1) |
 | epoch | Train epochs (defaults to 200) |
 | batch_size | The batch size of training input data (defaults to 32) |
 | lr | Optimizer learning rate (defaults to 0.0001) |
