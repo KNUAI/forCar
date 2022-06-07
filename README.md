@@ -64,7 +64,7 @@ Write the variables you want to use in cols!
 | data           | The data_file_name                                             |
 | cols | Certain cols from the data files as the input features |
 | fold | 5-fold: 1, 2, 3, 4, 5 (defaults to 5) |
-| latent_size | Dimension of latent vector |
+| latent_size | Dimension of latent vector (defaults to 128) |
 | threshold_rate | Threshold_rate (defaults to 5) |
 | n_layer | n_layers of rnn model |
 | epoch | Train epochs (defaults to 200) |
