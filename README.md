@@ -49,7 +49,7 @@ Write the variables you want to use in cols!
 | batch_size | The batch size of training input data (defaults to 32) |
 | patience | Early stopping patience (defaults to 5) |
 | learning_rate | Optimizer learning rate (defaults to 0.0001) |
-| loss | Loss function (defaults to `mae`) |
+| loss | Loss function: `mse`, `mae` (defaults to `mae`) |
 | lradj | Ways to adjust the learning rate (defaults to `type1`) |
 | evaluate | Evaluate the trained model |
 | hidden_size | N_channel of module (defaults to 4) |
