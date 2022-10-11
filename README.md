@@ -95,6 +95,7 @@ Write the variables you want to use in cols!
 | patience | Early stopping patience (defaults to 3) |
 | gpus | The gpu no, used for training and inference (defaults to 0) |
 
-
+## Results
+**If you finish the experiment, you can see experiment results in picture directory**
 
 
