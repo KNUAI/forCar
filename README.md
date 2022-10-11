@@ -14,7 +14,7 @@ ex)
 ![image](https://user-images.githubusercontent.com/86586602/169826930-85e57487-62e3-4998-a472-beb7a288188b.png)
 
 If you want to anomaly detection, put your data in datasets/Anomaly_Detection/  
-If you want to sample data for anomaly detection, you can download this [ST-AWFD](https://github.com/STMicroelectronics/ST-AWFD)
+If you want to sample data for anomaly detection, you can download this [ST-AWFD](https://github.com/STMicroelectronics/ST-AWFD)  
 ex)
 ![image](https://user-images.githubusercontent.com/86586602/169827535-a0871177-bc63-4d19-9b7a-f1e82ece500b.png)
 **Notice**
