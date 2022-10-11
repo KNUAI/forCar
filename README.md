@@ -21,20 +21,38 @@ ex)
 anomaly detection dataset must have 'MaterialID', 'is_test', 'target' columns
 
 ## Usage
-**If you want to run forecasting**
+**If you want to train and test forecasting at once**
 ```
 python forecasting.py --model SCINet --data ETTh1.csv --cols HUFL HULL MUFL MULL LUFL LULL OT --seq_len 96 --pred_len 48
 ```
+**If you want to train forecasting**
+```
+python forecasting_train.py --model SCINet --data ETTh1.csv --cols HUFL HULL MUFL MULL LUFL LULL OT --seq_len 96 --pred_len 48
+```
+**If you want to test forecasting**
+```
+python forecasting_test.py --model SCINet --data ETTh1.csv --cols HUFL HULL MUFL MULL LUFL LULL OT --seq_len 96 --pred_len 48
+```
+
 Write the model you want to use in model!  
 Write the file_name you want to use in data!  
 Write the variables you want to use in cols!  
 Write the length you want to input in seq_len!  
 Write the length you want to predict in pred_len!  
 
-**If you want to run anomaly detection**
+**If you want to train and test anomaly detection at once**
 ```
 python FD.py --data D1.csv --cols feature_1 feature_2 feature_3 feature_4 feature_5 feature_6 feature_7 feature_8 feature_9 feature_10 feature_11 feature_12 feature_13 feature_14 feature_15
 ```
+**If you want to train anomaly detection**
+```
+python FD_train.py --data D1.csv --cols feature_1 feature_2 feature_3 feature_4 feature_5 feature_6 feature_7 feature_8 feature_9 feature_10 feature_11 feature_12 feature_13 feature_14 feature_15
+```
+**If you want to test anomaly detection**
+```
+python FD_test.py --data D1.csv --cols feature_1 feature_2 feature_3 feature_4 feature_5 feature_6 feature_7 feature_8 feature_9 feature_10 feature_11 feature_12 feature_13 feature_14 feature_15
+```
+
 Write the file_name you want to use in data!  
 Write the variables you want to use in cols!  
 
