@@ -33,7 +33,7 @@ Write the length you want to predict in pred_len!
 
 **If you want to run anomaly detection**
 ```
-python FD.py --data D1.csv --cols feature_1, feature_2, feature_3, feature_4, feature_5, feature_6, feature_7, feature_8, feature_9, feature_10, feature_11, feature_12, feature_13, feature_14, feature_15
+python FD.py --data D1.csv --cols feature_1 feature_2 feature_3 feature_4 feature_5 feature_6 feature_7 feature_8 feature_9 feature_10 feature_11 feature_12 feature_13 feature_14 feature_15
 ```
 Write the file_name you want to use in data!  
 Write the variables you want to use in cols!  
