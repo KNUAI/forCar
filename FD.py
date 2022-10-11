@@ -107,7 +107,7 @@ if args.evaluate:
                     print(i, 'th wafer is originally defective!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
                     print('loss:: ', loss)
             
-            y_true.append(label)
+            y_true.append(label.detach().numpy())
             y_pred.append(logits)
             
             test_acc_sum += np.equal(label, logits).sum()            
@@ -151,7 +151,7 @@ if args.evaluate:
                 else:
                     tp_loss.append(loss.detach().cpu().numpy())
 
-            a_true.append(label)
+            a_true.append(label.detach().numpy())
             a_pred.append(logits)
             
             all_acc_sum += np.equal(label, logits).sum()
@@ -281,7 +281,7 @@ else:
                     print(i, 'th wafer is originally defective!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
                     print('loss:: ', loss)
             
-            y_true.append(label)
+            y_true.append(label.detach().numpy())
             y_pred.append(logits)
             
             test_acc_sum += np.equal(label, logits).sum()
@@ -325,7 +325,7 @@ else:
                 else:
                     tp_loss.append(loss.detach().cpu().numpy())
 
-            a_true.append(label)
+            a_true.append(label.detach().numpy())
             a_pred.append(logits)
             
             all_acc_sum += np.equal(label, logits).sum()
